@@ -1,5 +1,7 @@
 ---
 title: unbound.conf(5)
+sidebar:
+    order: 10
 ---
 <h1>unbound.conf</h1>
 <p>Section: unbound 1.4.17 (5)<br />

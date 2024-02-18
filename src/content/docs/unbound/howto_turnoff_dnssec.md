@@ -1,5 +1,7 @@
 ---
 title: Unbound - DNSSECを無効にする方法
+sidebar:
+    order: 5
 ---
 <author>
   By W.C.A. Wijngaards, NLnet Labs, June 2010.

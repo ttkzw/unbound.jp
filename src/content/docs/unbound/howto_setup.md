@@ -1,5 +1,7 @@
 ---
 title: Unbound - インストールと設定方法
+sidebar:
+    order: 2
 ---
 <author>
   By W.C.A. Wijngaards, NLnet Labs, October 2008.

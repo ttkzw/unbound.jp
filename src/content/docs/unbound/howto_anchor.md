@@ -1,5 +1,7 @@
 ---
 title: Unbound - DNSSECを有効にする方法
+sidebar:
+    order: 4
 ---
 <author>
   By W.C.A. Wijngaards, NLnet Labs, August 2010.

@@ -1,5 +1,7 @@
 ---
 title: Unbound - 最適化の方法
+sidebar:
+    order: 3
 ---
 <author>
   By W.C.A. Wijngaards, NLnet Labs, October 2008, updated July 2010.

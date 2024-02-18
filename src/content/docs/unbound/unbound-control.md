@@ -1,5 +1,7 @@
 ---
 title: unbound-control(8)
+sidebar:
+    order: 12
 ---
 <h1>unbound-control</h1>
 <p>Section: unbound 1.4.17 (8)<br />

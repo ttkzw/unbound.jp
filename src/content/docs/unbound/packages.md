@@ -1,5 +1,7 @@
 ---
 title: Unboundのパッケージの状況
+sidebar:
+    order: 6
 ---
 （2016年2月18日時点）
 

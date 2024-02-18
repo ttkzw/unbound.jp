@@ -1,5 +1,7 @@
 ---
 title: Unbound
+sidebar:
+    order: 1
 ---
 
 <p>UnboundはDNSリゾルバ、キャッシュ、DNSSEC検証機能を持つDNSキャッシュサーバーです。次のような特徴を持ちます。</p>

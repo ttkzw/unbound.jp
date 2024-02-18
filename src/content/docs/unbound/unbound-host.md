@@ -1,5 +1,7 @@
 ---
 title: unbound-host(1)
+sidebar:
+    order: 11
 ---
 <h1>unbound-host</h1>
 <p>Section: unbound 1.4.17 (1)<br />

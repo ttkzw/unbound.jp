@@ -1,5 +1,7 @@
 ---
 title: unbound-checkconf(8)
+sidebar:
+    order: 9
 ---
 <h1>unbound-checkconf</h1>
 <p>Section: unbound 1.4.17 (8)<br />

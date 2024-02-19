@@ -9,14 +9,17 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: "Unbound",
+					collapsed: true,
 					autogenerate: { directory: "unbound" },
 				},
 				{
 					label: "NSD",
+					collapsed: true,
 					autogenerate: { directory: "nsd4" },
 				},
 				{
 					label: "ldns",
+					collapsed: true,
 					autogenerate: { directory: "ldns" },
 				},
 				{

@@ -8,12 +8,23 @@
 
 ```
 git clone https://github.com/ttkzw/unbound.jp.git
-npm install astro@latest
-npx astro add starlight
+npm install
 ```
 
 ## 静的ファイル生成
 
 ```
 npm run build
+```
+
+## 開発用サーバーの起動
+
+```
+npm run dev
+```
+
+## アップデート
+
+```
+npx @astrojs/upgrade
 ```

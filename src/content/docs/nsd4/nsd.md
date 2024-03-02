@@ -1,18 +1,28 @@
 ---
 title: nsd(8)
+sidebar:
+    order: 2
 ---
-<h1>NSD</h1>
+# NSD
 
 Section: NSD 4.0.0 (8)<br />
 Updated: Oct 29, 2013<br />
 <hr />
-<h2>名前</h2>
+
+## 名前
+
 <p><strong>nsd</strong> - Name Server Daemon (NSD) version 4.0.0.</p>
-<h2>書式</h2>
+
+## 書式
+
 <p><strong>nsd</strong> [<strong>-4</strong>] [<strong>-6</strong>] [<strong>-a</strong> <em>ip-address[@port]</em>] [<strong>-c</strong> <em>configfile</em>] [<strong>-d</strong>] [<strong>-f</strong> <em>database</em>] [<strong>-h</strong>] [<strong>-i</strong> <em>identity</em>] [<strong>-I</strong> <em>nsid</em>] [<strong>-l</strong> <em>logfile</em>] [<strong>-N</strong> <em>server-count</em>] [<strong>-n</strong> <em>noncurrent-tcp-count</em>] [<strong>-P</strong> <em>pidfile</em>] [<strong>-p</strong> <em>port</em>] [<strong>-s</strong> <em>seconds</em>] [<strong>-t</strong> <em>chrootdir</em>] [<strong>-u</strong> <em>username</em>] [<strong>-V</strong> <em>level</em>] [<strong>-v</strong>]</p>
-<h2>説明</h2>
+
+## 説明
+
 <p><strong>NSD</strong>は権威DNSネームサーバの完全な実装です。起動時に、<strong>NSD</strong>は引数<strong>-f</strong> <em>database</em>で指定されたデータベースを読み込み、バックグラウンドに移り、53番ポートか<strong>-p</strong> <em>port</em>オプションで指定された異なるポート番号でクエリーに答えます。<em>database</em> が存在しなければ作成されます。デフォルトでは、<strong>NSD</strong>利用できるすべてのローカルインターフェイスにバインドします。<strong>-a</strong> <em>ip-address[@port]</em>オプションを使うと、バインドされる特定のインターフェイスを指定することができます。このオプションを1回以上使うと、<strong>NSD</strong>指定したすべてのIPアドレスを個別にUDPとTCPのソケットにバインドします。<strong>NSD</strong>のコンパイル時にIPv6を有効にしていれば、IPv6アドレスも指定できます。</p>
-<h2>オプション</h2>
+
+## オプション
+
 <p><strong>-v</strong>と<strong>-h</strong>オプションを除いて、全てのオプションは設定ファイル（<strong>-c</strong> 引数）で指定できます。オプションがコマンドラインで指定されたら、コマンドラインのオプションは設定ファイルのオプションより優先されます。通常は、<strong>NSD</strong>は オペレーションシステムの起動時に<em>/etc/rc.d/nsd.sh</em>スクリプトのようなものから実行される`<a href="../nsd-control/">nsd-control</a>(8) start`から起動されるべきです。</p>
 <dl compact="compact">
 <dt><strong>-4</strong></dt>
@@ -63,7 +73,9 @@ Updated: Oct 29, 2013<br />
 <dt>SIGUSR1</dt>
 <dd>ログにBIND8形式の統計情報をダンプします。他のシグナルは無視されます。</dd>
 </dl>
-<h2>ファイル</h2>
+
+## ファイル
+
 <dl compact="compact">
 <dt>/var/db/nsd/nsd.db</dt>
 <dd>デフォルトの<strong>NSD</strong>データベース</dd>
@@ -72,10 +84,16 @@ Updated: Oct 29, 2013<br />
 <dt>/etc/nsd/nsd.conf</dt>
 <dd>デフォルトの<strong>NSD</strong>の設定ファイル</dd>
 </dl>
-<h2>診断</h2>
+
+## 診断
+
 <p><strong>-d</strong>オプションが指定されていなければ、標準のsyslog(8)の<em>daemon</em>ファシリティで全ての問題が記録されます。</p>
-<h2>関連項目</h2>
+
+## 関連項目
+
 <p><em><a href="../nsd.conf/">nsd.conf</a></em>(5), <em><a href="../nsd-checkconf/">nsd-checkconf</a></em>(8), <em><a href="../nsd-control/">nsd-control</a></em>(8)</p>
-<h2>著者</h2>
+
+## 著者
+
 <p><strong>NSD</strong>はNLnet LabsとRIPE NCCの共同チームにより作られました。詳細は配布ファイルに含まれているファイルCREDITSを見てください。</p>
 <hr />

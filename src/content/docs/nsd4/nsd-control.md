@@ -1,16 +1,24 @@
 ---
 title: nsd-control(8)
+sidebar:
+    order: 5
 ---
-<h1>nsd-control</h1>
+# nsd-control
 
 Section: nsd 4.0.0 (8)<br />
 Updated: Oct 29, 2013<br />
 <hr />
-<h2>名前</h2>
+
+## 名前
+
 <p><strong>nsd-control,</strong> <strong>nsd-control-setup</strong> - NSDリモートサーバー制御ユーティリティ</p>
-<h2>書式</h2>
+
+## 書式
+
 <p><strong>nsd-control</strong> [<strong>-c</strong> <em>cfgfile</em>] [<strong>-s</strong> <em>server</em>] <em>command</em></p>
-<h2>説明</h2>
+
+## 説明
+
 <p><strong>nsd-control</strong>は<em><a href="../nsd/">nsd</a></em>(8) DNSサーバのリモート管理を行います。設定ファイルを読み込み、nsdサーバにSSL越しで接続し、コマンドを送り、結果を表示します。利用できるオプションは以下の通りです。</p>
 <dl compact="compact">
 <dt><strong>-h</strong></dt>
@@ -20,7 +28,9 @@ Updated: Oct 29, 2013<br />
 <dt><strong>-s</strong> <em>server[@port]</em></dt>
 <dd>接続するサーバのIPv4かIPv6のアドレス。省略したら、アドレスは設定ファイルから読まれます。</dd>
 </dl>
-<h2>コマンド</h2>
+
+## コマンド
+
 <p>以下のコマンドが利用できます。</p>
 <dl compact="compact">
 <dt><strong>start</strong></dt>
@@ -60,11 +70,17 @@ Updated: Oct 29, 2013<br />
 <dt><strong>verbosity &lt;number&gt;</strong></dt>
 <dd>ログ出力の饒舌さを変更します。</dd>
 </dl>
-<h2>終了コード</h2>
+
+## 終了コード
+
 <p>nsd-controlプログラムは、エラーのときにはステータスコード1で、成功のときにはステータスコード0で終了します。</p>
-<h2>セットアップ</h2>
+
+## セットアップ
+
 <p>セットアップはサーバとクライアントの両方に自己署名証明書とプライベート鍵を要求します。スクリプト <em>nsd-control-setup</em> はデフォルトの実行ディレクトリ、あるいは-dで指定した別のディレクトリにそれらを生成します。鍵ファイルへのアクセス制御の権限を変更すれば、全てのユーザではなくデフォルトの所有者とグループによりnsd-controlを誰が使うかを決めることができます。スクリプトはディレクトリに存在するプライベート鍵を保存します。rootとしてスクリプトを動かした後に、<em>nsd.conf</em>で<strong>control-enable</strong> をオンにしてください。</p>
-<h2>統計カウンター</h2>
+
+## 統計カウンター
+
 <p><em>stats</em>コマンドはたくさんの統計カウンターを表示します。</p>
 <dl compact="compact">
 <dt><em>num.queries</em></dt>
@@ -122,14 +138,18 @@ Updated: Oct 29, 2013<br />
 <dt><em>zone.slave</em></dt>
 <dd>提供されたスレーブゾーンの数。'request-xfr'エントリを持つゾーンです。</dd>
 </dl>
-<h2>ファイル</h2>
+
+## ファイル
+
 <dl compact="compact">
 <dt><em>/etc/nsd/nsd.conf</em></dt>
 <dd>nsd設定ファイル</dd>
 <dt><em>/etc/nsd</em></dt>
 <dd>プライベート鍵(nsd_server.keyとnsd_control.key)と自己署名証明書(nsd_server.pemとnsd_control.pem)を置くディレクトリ。</dd>
 </dl>
-<h2>関連項目</h2>
+
+## 関連項目
+
 <p><em><a href="../nsd.conf/">nsd.conf</a></em>(5), <em><a href="../nsd/">nsd</a></em>(8), <em><a href="../nsd-checkconf/">nsd-checkconf</a></em>(8)</p>
 <hr />
 

@@ -1,20 +1,30 @@
 ---
 title: nsd.conf(5)
+sidebar:
+    order: 3
 ---
-<h1>nsd.conf</h1>
+# nsd.conf
 
 Section: nsd 4.0.0 (5)<br />
 Updated: Oct 29, 2013<br />
 <hr />
-<h2>名前</h2>
+
+## 名前
+
 <p><strong>nsd.conf</strong> - NSD設定ファイル</p>
-<h2>書式</h2>
+
+## 書式
+
 <p><strong>nsd.conf</strong></p>
-<h2>説明</h2>
+
+## 説明
+
 <p><strong>nsd.conf</strong>は<a href="../nsd/">nsd</a>(8)を設定するために使われます。このファイル形式は属性と値を持ちます。属性の内側に属性を持つものもあります。記述方法は"属性: 値"です。</p>
 <p>コメントは#で始まり、行の終わりまで続きます。空行も行の先頭の空白も無視されます。</p>
 <p><strong>nsd.conf</strong>はnsdサーバ－、ゾーンファイル、プライマリ、セカンダリのオプションを指定します。</p>
-<h2>例</h2>
+
+### 例
+
 <p>短いnsd.confの例を以下に示します。</p>
 <p># Example.com nsd.conf file</p>
 <dl compact="compact">
@@ -55,9 +65,13 @@ Updated: Oct 29, 2013<br />
 </dl>
 </dd>
 </dl>
-<h2>ファイル形式</h2>
+
+## ファイル形式
+
 <p>キーワード間には空白が必要です。属性のキーワードはコロン':'で終わります。属性の次には属性あるいは値が続きます。トップレベルでは、<strong>server:</strong>や<strong>key:</strong>や<strong>pattern:</strong>や<strong>zone:</strong>のみが許可されます。これらには、属性や新しい<strong>server:</strong>や <strong>key:</strong>や <strong>pattern:</strong>や<strong>zone:</strong>節が続きます。 <strong>zone:</strong>&gt;属性には、ゾーン オプションが後に続きます。 <strong>server:</strong>属性には、<strong>NSD</strong>サーバーのグローバルオプションが後に続きます。<strong>key:</strong> &gt;属性は認証の鍵を定義するために使われます。<strong>pattern:</strong>属性には、パターンを利用するゾーンのオプションが後に続きます。<strong>include:</strong>ディレクティブを使ってファイルを取り込むことができます。これはどこでも記述することができ、引数に一つのファイル名を取ります。取り込んだファイルのテキストはその箇所で設定ファイルにコピーされたような処理を行います。chrootが使われるときには（chrootを前に付けた）絶対ファイル名が必要です。（chrootが何であるかを知っていて）chrootするアプリケーションの前後にincludeが解析されます。</p>
-<h3>サーバのオプション</h3>
+
+### サーバのオプション
+
 <p>グローバル オプションは（NSDのコマンドラインにより優先されていなければ）<strong>server:</strong>節から取得されます。一つの<strong>server:</strong>節のみ許容されます。</p>
 <dl compact="compact">
 <dt><strong>ip-address:</strong> &lt;ip4 or ip6&gt;[@port]</dt>
@@ -131,7 +145,9 @@ Updated: Oct 29, 2013<br />
 <dt><strong>rrl-whitelist-ratelimit:</strong> &lt;qps&gt;</dt>
 <dd>ホワイトリストになるクエリー元の最大qps。デフォルトは2000 qpsです。rrl-whitelistオプションにより、通常の制限の代わりにこのqpsの制限を受け取る特定のクエリー設定できます。0の値を設定すると、レートは無制限になります。</dd>
 </dl>
-<h3>リモート制御</h3>
+
+### リモート制御
+
 <p><strong>remote-control:</strong>節は<em>動作中のNSDサーバーにコマンドを与える<a href="../nsd-control/">nsd-control</a></em>(8) ツールを使うためのオプションを設定するために使われます。デフォルトでは無効にされていて、デフォルトでlocalhostで待ち受けます。サーバ－とクライアントの認証に互いに自己署名証明書を使ったTLS over TCPを使います。自己署名証明書は<em>nsd-control-setup</em>ツールで生成することができます。chrootする前およびユーザー権限を落とす前にNSDにより鍵ファイルが読まれます。そのため、chrootの外側に置いたり、スーパーユーザーのみが読むことができるようにしたりできます。</p>
 <dl compact="compact">
 <dt><strong>control-enable:</strong> &lt;yes or no&gt;</dt>
@@ -149,7 +165,9 @@ Updated: Oct 29, 2013<br />
 <dt><strong>control-cert-file:</strong> &lt;filename&gt;</dt>
 <dd>制御クライアントの証明書へのパス。デフォルトは<em>/etc/nsd/nsd_control.pem</em>です。この証明書はサーバー証明書により署名されています。このファイルは<em>nsd-control-setup</em>ユーティリティにより生成されます。このファイルは<em>nsd-control</em>により使われます。</dd>
 </dl>
-<h3>patternオプション</h3>
+
+### patternオプション
+
 <p><strong>pattern:</strong>節は複数のゾーンに適応するオプションのセットを示すために使われます。ゾーンに関して同じゾーンのオプションは許可されます。</p>
 <dl compact="compact">
 <dt><strong>name:</strong> &lt;string&gt;</dt>
@@ -159,7 +177,9 @@ Updated: Oct 29, 2013<br />
 <dt><strong>&lt;zone option&gt;:</strong> &lt;value&gt;</dt>
 <dd><strong>zonefile</strong>, <strong>allow-notify</strong>, <strong>request-xfr</strong>, <strong>allow-axfr-fallback</strong>, <strong>notify</strong>, <strong>notify-retry</strong>, <strong>provide-xfr</strong>, <strong>outgoing-interface</strong>のゾーンオプションがで指定できます。これらはこのパターンに読み込まれるパターンとゾーンに適応されます。</dd>
 </dl>
-<h3>ゾーン オプション</h3>
+
+### ゾーン オプション
+
 <p>ゾーン毎に一つの<strong>zone:</strong>節で指定されるオプションが必要です。複数のサーバーを加えるためにはアクセス制御リストの要素を複数回与えます。これらの要素は明示的に追加される必要があります。</p>
 <p><em>nsd.conf</em>設定ファイルに設定されたゾーンは、（それ自体の暗黙的なパターンないで）その設定がハードコードされます。そして、それらはdelzoneで削除できませんが、設定ファイルから削除したり、repatternで削除したりすることはできます。 </p>
 <dl compact="compact">
@@ -202,7 +222,9 @@ Updated: Oct 29, 2013<br />
 <dt><strong>rrl-whitelist:</strong> &lt;rrltype&gt;</dt>
 <dd>このオプションの節はこのゾーンのための指定したrrltypeのクエリーがホワイトリストされるようになります。これらはwhitelist-ratelimitを受け入れます。複数行を記述したら、各行はゾーンのためにホワイトリストされる新しいrrltypeを有効にします。デフォルトは何もホワイトリストされません。rrltypeはNSD RRLが異なるタイプを互いに干渉させないように利用するクエリーの分類です。（verbosity 2では）サブネットがブロックされるときに、タイプがログの行に出力されます。RRLの分類タイプはnxdomain, error, referral, any, rrsig, wildcard, nodata, dnskey, positive, allです。</dd>
 </dl>
-<h3>鍵の宣言</h3>
+
+### 鍵の宣言
+
 <p><strong>key:</strong>節はアクセス制御リストで使われる鍵を設定します。次の属性を持ちます。</p>
 <dl compact="compact">
 <dt><strong>name:</strong> &lt;string&gt;</dt>
@@ -212,9 +234,13 @@ Updated: Oct 29, 2013<br />
 <dt><strong>secret:</strong> &lt;base64 blob&gt;</dt>
 <dd>base64で符号化された共有鍵。異なるファイルに<strong>secret:</strong>宣言（とbase64の塊）を置くこともできます。このときは<strong>include:</strong>でそのファイルを指定します。このようにして、鍵と設定ファイルの残りは異なるセキュリティ ポリシーを持つこともあるため、別ファイルに分けることができます。</dd>
 </dl>
-<h2>BIND9ハッカーのためのNSDの設定</h2>
+
+## BIND9ハッカーのためのNSDの設定
+
 <p>BIND9は自身の設定ファイルの形式named.conf(5)を持つネームサーバの実装です。BIND9には'Master'と'Slave'のタイプのゾーンがあります。</p>
-<h3>スレーブ ゾーン</h3>
+
+### スレーブ ゾーン
+
 <p>スレーブ ゾーンでは、マスタ サーバが並べられます。マスタ サーバはゾーン データをクエリーされ、更新通知のために待ち受けます。NSDでは、これらの2つの特性は別に設定される必要があります。allow-notifyとrequest-xfrオプションでマスタ アドレスを並べます。BIND9では、（例えば操作者など）通知の特別な送信元のためにallow-notify要素を提供することだけが必要です。NSDはマスタと操作者の両方のためにallow-notifyを持つ必要があります。BIND9では追加の転送元を許可します。NSDでは、request-xfrとして転送元を並べます。BIND9の文法でスレーブ ゾーンの例をここに示します。# Config file for example.org options {</p>
 <dl compact="compact">
 <dd>dnssec-enable yes;</dd>
@@ -280,7 +306,9 @@ Updated: Oct 29, 2013<br />
 <dd>request-xfr: 162.0.4.49 tsig.example.org.</dd>
 </dl>
 masterは2回並べられていることに注目してください。このスレーブ サーバに通知を送ることを許可するために1回、スレーブ サーバに更新のゾーン データがどこにあるかを伝えるために1回。マスタを指定するために、もっと多くのallow-notifyとrequest-xfrの行を追加することができます。このスレーブ サーバに通知を送信することも許可するアドレスのために、追加のallow-notifyの行を指定することができます。
-<h3>マスタ ゾーン</h3>
+
+### マスタ ゾーン
+
 <p>BIND9でのマスタ ゾーンでは、スレーブ サーバが並べられます。これらのスレーブ サーバは更新の通知を送信され、ゾーン データの転送の要求を許可されます。NSDでは、これらの2つの特性は別に設定される必要があります。BIND9の文法でマスタ ゾーンの例をここに示します。</p>
 <p>zone "example.nl" {</p>
 <dl compact="compact">
@@ -318,19 +346,29 @@ masterは2回並べられていることに注目してください。このス�
 <dl compact="compact">
 <dd># notify: 1.2.3.4 NOKEY</dd>
 </dl>
-<h3>その他</h3>
+
+### その他
+
 <p>NSDは権威のみのDNSサーバです。これはゾーンのプライマリあるいはセカンダリのサーバとして意味し、DNSリゾルバとキャッシュにDNSデータを提供します。BIND9は権威サーバとして機能し、その設定オプションはこのセクションのNSDと比べられます。しかし、BIND9はリゾルバやキャッシュとしても機能します。BIND9がリゾルバやキャッシュのために持つ設定オプションはNSDと等しくないです。</p>
-<h2>ファイル</h2>
+
+## ファイル
+
 <dl compact="compact">
 <dt>/var/db/nsd/nsd.db</dt>
 <dd>デフォルトの<strong>NSD</strong>データベース</dd>
 <dt>/etc/nsd/nsd.conf</dt>
 <dd>デフォルトの<strong>NSD</strong>の設定ファイル</dd>
 </dl>
-<h2>関連項目</h2>
+
+## 関連項目
+
 <p><em><a href="../nsd/">nsd</a></em>(8), <em><a href="../nsd-checkconf/">nsd-checkconf</a></em>(8), <em><a href="../nsd-control/">nsd-control</a></em>(8)</p>
-<h2>著者</h2>
+
+## 著者
+
 <p><strong>NSD</strong>はNLnet LabsとRIPE NCCの共同チームにより作られました。詳細は配布ファイルに含まれているファイルCREDITSを見てください。</p>
-<h2>バグ</h2>
+
+## バグ
+
 <p><strong>nsd.conf</strong>は基本的な解析器により解析されます。エラーメッセージは要領を得ないかもしれません。</p>
 <hr />

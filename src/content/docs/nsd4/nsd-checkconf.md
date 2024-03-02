@@ -1,18 +1,27 @@
 ---
 title: nsd-checkconf(8)
+sidebar:
+    order: 4
 ---
-<h1>nsd-checkconf</h1>
+# nsd-checkconf
 
 Section: nsd 4.0.0 (8)<br />
 Updated: Oct 29, 2013<br />
+
 <hr />
-<h2>名前</h2>
+
+## 名前
+
 <p><strong>nsd-checkconf</strong> - NSD設定ファイルチェッカー</p>
-<h2>書式</h2>
+
+## 書式
+
 <p><strong>nsd-checkconf</strong> [<strong>-v</strong>] [<strong>-h</strong>] [<strong>-o</strong> <em>option</em>] [<strong>-z</strong> <em>zonename</em>] [<strong>-p</strong> <em>pattern</em>] [<strong>-s</strong> <em>keyname</em>] <em>configfile</em></p>
 <h2>説明</h2>
 <p><strong>nsd-checkconf</strong>は設定ファイルを読み込みます。標準エラーに解析エラーを出力し、内容について追加のチェックを行います。設定ファイルの形式は<a href="../nsd.conf/">nsd.conf</a>(5)に記述されています。このプログラムのユーティリティは<a href="../nsd/">nsd</a>(8)で設定ファイルを使う前にエラーをチェックするために使われます。このプログラムは-oと-zオプションを使って、シェルスクリプトがnsdの設定ファイルにアクセスするためにも使うことができます。</p>
-<h2>オプション</h2>
+
+## オプション
+
 <dl compact="compact">
 <dt><strong>-v</strong></dt>
 <dd>読み込み後に、設定ファイルの形式で標準出力にオプションを出力します。このオプションなしでは、成功あるいは解析エラーのみが報告されます。</dd>
@@ -38,13 +47,19 @@ Updated: Oct 29, 2013<br />
 </dl>
 </dd>
 </dl>
-<h2>ファイル</h2>
+
+## ファイル
+
 <dl compact="compact">
 <dt>/etc/nsd/nsd.conf</dt>
 <dd>デフォルトの<strong>NSD</strong>の設定ファイル</dd>
 </dl>
-<h2>関連項目</h2>
+
+## 関連項目
+
 <p><em><a href="../nsd/">nsd</a></em>(8), <em><a href="../nsd.conf/">nsd.conf</a></em>(5), <em><a href="../nsd-control/">nsd-control</a></em>(8)</p>
-<h2>著者</h2>
+
+## 著者
+
 <p><strong>NSD</strong>はNLnet LabsとRIPE NCCの共同チームにより作られました。詳細は配布ファイルに含まれているファイルCREDITSを見てください。</p>
 <hr />
